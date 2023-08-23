@@ -52,7 +52,7 @@ return {
 				foldexpr = "nvim_treesitter#foldexpr()",
 				foldmethod = "expr",
 			}
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",

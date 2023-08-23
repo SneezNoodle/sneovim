@@ -19,8 +19,8 @@ return {
 		["<S-Tab>"] = { "gT", { desc = "Previous tab" } },
 		["<Leader>tn"] = { "<cmd>tabnew<cr>", { desc = "New tab" } },
 		["<Leader>tc"] = { "<cmd>tabclose<cr>", { desc = "Close tab" } },
-		["<Leader>tL"] = { "<cmd>+tabmove<cr>", { desc = "Move tab right" }, },
-		["<Leader>tH"] = { "<cmd>-tabmove<cr>", { desc = "Move tab left" }, },
+		["<Leader>tL"] = { "<cmd>+tabmove<cr>", { desc = "Move tab right" } },
+		["<Leader>tH"] = { "<cmd>-tabmove<cr>", { desc = "Move tab left" } },
 
 		-- Buffers
 		["<Leader>bl"] = { "<cmd>ls<cr>", { desc = "List buffers" } },
@@ -51,7 +51,7 @@ return {
 		["<C-,>"] = { "<C-W><", { desc = "Shrink vertical split" } },
 
 		-- Config shortcut
-		["<F1>"] = { "<cmd>tabnew | edit ~/.config/nvim/lua/<cr>", { desc = "Edit config" }, },
+		["<F1>"] = { "<cmd>tabnew | edit ~/.config/nvim/lua/<cr>", { desc = "Edit config" } },
 	},
 	i = {
 		["<C-l>"] = { "<del>", { desc = "Delete (like <C-h>)" } },
@@ -70,4 +70,3 @@ return {
 		["<Esc>"] = { "<C-\\><C-n>", { desc = "Esc to exit terminal (like all other modes)" } },
 	},
 }
-

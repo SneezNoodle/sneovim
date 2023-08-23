@@ -49,4 +49,3 @@ return {
 	virtualedit = { "block" },
 	whichwrap = "",
 }
-

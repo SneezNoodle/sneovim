@@ -29,7 +29,7 @@ return {
 					},
 				},
 				completion = {
-					completeopt = "menu,menuone,noinsert"
+					completeopt = "menu,menuone,noinsert",
 				},
 				formatting = {
 					format = function(entry, vim_item)
@@ -44,39 +44,50 @@ return {
 					["<C-h>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
 					["<C-l>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
 
-					["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i", "s", "c" }),
-					["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i", "s", "c" }),
+					["<C-j>"] = cmp.mapping(
+						cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
+						{ "i", "s", "c" }
+					),
+					["<C-k>"] = cmp.mapping(
+						cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
+						{ "i", "s", "c" }
+					),
 
 					["<A-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
 					["<A-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
 
 					["<A-l>"] = cmp.mapping(function(fallback)
-						if luasnip.expand_or_jumpable() then luasnip.expand_or_jump()
-						else fallback() end
-						end, { "i", "s" }),
-					["<A-h>"] = cmp.mapping(function(fallback)
-						if luasnip.jumpable(-1) then luasnip.jump(-1)
-							else fallback()
+						if luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
 						end
-						end, { "i", "s" })
+					end, { "i", "s" }),
+					["<A-h>"] = cmp.mapping(function(fallback)
+						if luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
 				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
-					}, { -- Use buffer completion if there are no lsp or snippet results
-						{ name = "buffer" },
+				}, { -- Use buffer completion if there are no lsp or snippet results
+					{ name = "buffer" },
 				}),
 				experimental = {
 					ghost_text = true,
-				}
+				},
 			}
 
 			-- Filetype setup
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
 					{ name = "git" },
-					}, {
-						{ name = "buffer" },
+				}, {
+					{ name = "buffer" },
 				}),
 			})
 
@@ -89,8 +100,8 @@ return {
 			cmp.setup.cmdline(":", {
 				sources = cmp.config.sources({
 					{ name = "cmdline" },
-					}, {
-						{ name = "path" },
+				}, {
+					{ name = "path" },
 				}),
 			})
 

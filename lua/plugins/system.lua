@@ -35,18 +35,19 @@ return {
 			},
 			float = {
 				border = "single",
-				win_options = { winblend = 0, },
+				win_options = { winblend = 0 },
 			},
-			preview = { border = "single", },
-			progress = { border = "single", },
+			preview = { border = "single" },
+			progress = { border = "single" },
 		},
 		config = function(plug, opts)
 			local oil = require("oil")
 			oil.setup(opts)
 
 			-- Set float toggle keymap
-			vim.keymap.set("n", "<Leader>e", function() oil.toggle_float() end, { desc = "Toggle oil float" })
+			vim.keymap.set("n", "<Leader>e", function()
+				oil.toggle_float()
+			end, { desc = "Toggle oil float" })
 		end,
 	},
 }
-

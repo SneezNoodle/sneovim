@@ -22,7 +22,7 @@ return {
 			extra = {
 				above = "<Leader>/K",
 				belove = "<Leader>/J",
-				eol = "<Leader>/L"
+				eol = "<Leader>/L",
 			},
 		},
 	},

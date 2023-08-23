@@ -14,7 +14,7 @@ return {
 			local m = require("mason-lspconfig")
 			local l = require("lspconfig")
 
-			m.setup { ensure_installed = { "lua_ls", } }
+			m.setup { ensure_installed = { "lua_ls" } }
 			m.setup_handlers {
 				function(server_name)
 					local default_config = {
@@ -34,13 +34,13 @@ return {
 					end
 
 					l[server_name].setup(config)
-				end
+				end,
 			}
 
 			-- LSP support for vim.api.nvim_*
 			require("neodev").setup()
 
-		 	-- Disable intrusive diagnostics
+			-- Disable intrusive diagnostics
 			vim.diagnostic.config {
 				virtual_text = false,
 				signs = false,
@@ -52,27 +52,37 @@ return {
 			require("utils.load").mappings {
 				n = {
 					[prefix .. "d"] = {
-						function() vim.diagnostic.open_float { focus = false } end,
+						function()
+							vim.diagnostic.open_float { focus = false }
+						end,
 						{ desc = "Open floating diagnostic" },
 					},
 					[prefix .. "r"] = {
-						function() vim.lsp.buf.rename() end,
+						function()
+							vim.lsp.buf.rename()
+						end,
 						{ desc = "Rename symbol" },
 					},
 					[prefix .. "D"] = {
-						function() vim.lsp.buf.definition() end,
+						function()
+							vim.lsp.buf.definition()
+						end,
 						{ desc = "Go to definition" },
 					},
 					[prefix .. "s"] = {
-						function() vim.lsp.buf.signature_help() end,
+						function()
+							vim.lsp.buf.signature_help()
+						end,
 						{ desc = "View signature" },
 					},
 					[prefix .. "a"] = {
-						function() vim.lsp.buf.code_action() end,
+						function()
+							vim.lsp.buf.code_action()
+						end,
 						{ desc = "View signature" },
 					},
 				},
 			}
-		end
+		end,
 	},
 }
