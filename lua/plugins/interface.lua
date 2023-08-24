@@ -40,8 +40,8 @@ return {
 			}
 			require("lualine").setup {
 				options = {
-					component_separators = { left = "|", right = "|" },
-					section_separators = { left = "", right = "" },
+					component_separators = { left = "", right = "" },
+					section_separators = { left = "", right = "" },
 
 					ignore_focus = { "oil" },
 
@@ -67,14 +67,14 @@ return {
 					lualine_c = { "encoding" },
 					lualine_x = {},
 					lualine_y = { components.cwd },
-					lualine_z = { "%c", "%l/%L" }, -- [Current byte], [Current line]/[Total lines]
+					lualine_z = { "%c:%l/%L" }, -- [Current byte], [Current line]/[Total lines]
 				},
 				inactive_sections = {
 					lualine_a = {},
 					lualine_b = { components.filename },
 					lualine_c = {},
 					lualine_x = {},
-					lualine_y = { "%c", "%l/%L" },
+					lualine_y = { "%c:%l/%L" },
 					lualine_z = {},
 				},
 			}
