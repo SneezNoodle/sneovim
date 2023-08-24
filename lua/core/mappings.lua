@@ -8,19 +8,17 @@ return {
 		["<Leader><C-q>"] = { "<cmd>qa!<cr>", { desc = "Force quit all" } },
 
 		-- Option toggles
-		["<Leader>or"] = { "<cmd>set rnu!<cr>", { desc = "Toggle relative numbers", silent = true } },
-		["<Leader>ol"] = { "<cmd>set list!<cr>", { desc = "Toggle list", silent = true } },
-		["<Leader>oh"] = { "<cmd>set hls!<cr>", { desc = "Toggle highlighting searches", silent = true } },
-
-		["<Escape>"] = { "<cmd>nohl<cr>", { desc = "Toggle list", silent = true } },
+		["<Leader>on"] = { "<cmd>set nu!<cr>", { desc = "Toggle line numbers" } },
+		["<Leader>or"] = { "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" } },
+		["<Leader>ol"] = { "<cmd>set list!<cr>", { desc = "Toggle list (show hidden characters)" } },
+		["<Leader>oh"] = { "<cmd>set hls!<cr>", { desc = "Toggle highlighting searches" } },
+		["<Leader>oH"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
 
 		-- Tabs
 		["<Tab>"] = { "gt", { desc = "Next tab" } },
 		["<S-Tab>"] = { "gT", { desc = "Previous tab" } },
 		["<Leader>tn"] = { "<cmd>tabnew<cr>", { desc = "New tab" } },
 		["<Leader>tc"] = { "<cmd>tabclose<cr>", { desc = "Close tab" } },
-		["<Leader>tL"] = { "<cmd>+tabmove<cr>", { desc = "Move tab right" } },
-		["<Leader>tH"] = { "<cmd>-tabmove<cr>", { desc = "Move tab left" } },
 
 		-- Buffers
 		["<Leader>bl"] = { "<cmd>ls<cr>", { desc = "List buffers" } },
@@ -32,18 +30,18 @@ return {
 		-- View navigation
 		["<A-w>"] = { "<C-w>", { desc = "Easier to press with my laptop keyboard" } },
 
-		["<C-d>"] = { "<C-d>M", { desc = "Centre cursor after jumping down" } },
-		["<C-u>"] = { "<C-u>M", { desc = "Centre cursor after jumping up" } },
+		["<C-d>"] = { "<C-d>zz", { desc = "Centre view after jumping down" } },
+		["<C-u>"] = { "<C-u>zz", { desc = "Centre view after jumping up" } },
 
 		["<C-h>"] = { "<C-w>h", { desc = "Switch window left" } },
 		["<C-j>"] = { "<C-w>j", { desc = "Switch window down" } },
 		["<C-k>"] = { "<C-w>k", { desc = "Switch window up" } },
 		["<C-l>"] = { "<C-w>l", { desc = "Switch window right" } },
 
-		["<A-h>"] = { "zh", { desc = "Pan left" } },
-		["<A-j>"] = { "<C-e>", { desc = "Pan down" } },
-		["<A-k>"] = { "<C-y>", { desc = "Pan up" } },
-		["<A-l>"] = { "zl", { desc = "Pan right" } },
+		["<A-h>"] = { "4zh", { desc = "Pan left" } },
+		["<A-j>"] = { "2<C-e>", { desc = "Pan down" } },
+		["<A-k>"] = { "2<C-y>", { desc = "Pan up" } },
+		["<A-l>"] = { "4zl", { desc = "Pan right" } },
 
 		["<C-=>"] = { "<C-W>+", { desc = "Grow horizontal split" } },
 		["<C-->"] = { "<C-W>-", { desc = "Shrink horizontal split" } },
