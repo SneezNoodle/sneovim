@@ -28,10 +28,10 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
-		-- event = "InsertEnter",
 		opts = {
 			disable_filetype = { "oil" },
 			disable_in_visualblock = true,
+			map_c_w = true, -- i_<C-w> should delete pairs when possible
 		},
 	},
 }
