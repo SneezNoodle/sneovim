@@ -3,14 +3,24 @@ return {
 	relativenumber = true,
 	cursorline = true,
 	ruler = false,
-
 	incsearch = true,
 	hlsearch = true,
+	tildeop = true,
+	wrap = false,
+	cindent = true,
+	splitright = true,
+	splitbelow = true,
 
+	tabstop = 4,
+	shiftwidth = 4,
+	laststatus = 2,
+	showtabline = 1,
 	scrolloff = 4,
 	sidescrolloff = 8,
 	sidescroll = 12,
-	wrap = false,
+
+	whichwrap = "",
+	mouse = "",
 
 	listchars = {
 		eol = "󰌑",
@@ -20,19 +30,6 @@ return {
 		extends = ">",
 		precedes = "<",
 	},
-
-	tabstop = 4,
-	shiftwidth = 4,
-	cindent = true,
-
-	mouse = "",
-
-	splitright = true,
-	splitbelow = true,
-
-	laststatus = 2,
-	showtabline = 1,
-
 	sessionoptions = {
 		"blank",
 		"buffers",
@@ -47,5 +44,4 @@ return {
 	},
 	completeopt = { "menu", "noinsert" },
 	virtualedit = { "block" },
-	whichwrap = "",
 }
