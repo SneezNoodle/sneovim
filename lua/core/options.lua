@@ -4,7 +4,7 @@ return {
 	cursorline = true,
 	ruler = false,
 	incsearch = true,
-	hlsearch = true,
+	hlsearch = false,
 	tildeop = true,
 	wrap = false,
 	cindent = true,
@@ -16,7 +16,7 @@ return {
 	laststatus = 2,
 	showtabline = 1,
 	scrolloff = 4,
-	sidescrolloff = 8,
+	sidescrolloff = 4,
 	sidescroll = 12,
 
 	whichwrap = "",
