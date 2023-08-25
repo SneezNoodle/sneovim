@@ -44,10 +44,13 @@ return {
 			local oil = require("oil")
 			oil.setup(opts)
 
-			-- Set float toggle keymap
+			-- Set float toggle keymaps
 			vim.keymap.set("n", "<Leader>e", function()
 				oil.toggle_float()
-			end, { desc = "Toggle oil float" })
+			end, { desc = "Toggle oil float (buffer parent)" })
+			vim.keymap.set("n", "<Leader>E", function()
+				oil.toggle_float(vim.fn.getcwd())
+			end, { desc = "Toggle oil float (cwd)" })
 		end,
 	},
 }
