@@ -66,7 +66,7 @@ return {
 					lualine_b = { "filetype", "fileformat" },
 					lualine_c = { "encoding" },
 					lualine_x = {},
-					lualine_y = { components.cwd },
+					lualine_y = { components.cwd, "branch", "diff" },
 					lualine_z = { "%c:%l/%L" }, -- [Current byte], [Current line]/[Total lines]
 				},
 				inactive_sections = {
