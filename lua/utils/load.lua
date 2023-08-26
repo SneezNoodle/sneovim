@@ -1,5 +1,6 @@
 local M = {}
 
+-- Table format: { Mode = { Keycode = { RHS, { opts } } } }
 function M.mappings(map_table)
 	for mode, maps in pairs(map_table) do
 		for keycode, mapping in pairs(maps) do
@@ -8,31 +9,20 @@ function M.mappings(map_table)
 	end
 end
 
+-- Table format: { Option = value (see vim.opt) }
 function M.options(option_table)
 	for opt, val in pairs(option_table) do
 		vim.opt[opt] = val
 	end
 end
 
-function M.commands(command_table)
-	for name, command in pairs(command_table) do
-		vim.api.nvim_create_user_command(name, command[0], command[1] or {})
-	end
-end
-
+-- Table format: { Group = { Event = { opts (see nvim_create_augroup) } } }
 function M.autocmds(autocmd_table)
-	for key, value in autocmd_table:pairs() do
-		-- Standalone cmds
-		if type(key) == "number" then
-			local cmd = value
-			vim.api.nvim_create_autocmd(cmd[1], cmd[2])
-		else -- Grouped cmds
-			local augroup = vim.api.nvim_create_augroup(key)
-			local autocmds = value
-			for _, cmd in autocmds:ipairs() do
-				cmd[2].group = augroup
-				vim.api.nvim_create_autocmd(cmd[1], cmd[2])
-			end
+	for augroup_name, cmds in pairs(autocmd_table) do
+		local augroup_id = vim.api.nvim_create_augroup(augroup_name, { clear = true })
+
+		for event, cmd in pairs(cmds) do
+			vim.api.nvim_create_autocmd(event, cmd)
 		end
 	end
 end
