@@ -27,7 +27,7 @@ return {
 					-- Display oil dir
 					fmt = function(str, ctx)
 						if vim.o.ft == "oil" then
-							return require("oil").get_current_dir()
+							return vim.fn.fnamemodify(require("oil").get_current_dir(), ":~")
 						else
 							return str
 						end
