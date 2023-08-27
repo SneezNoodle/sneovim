@@ -19,6 +19,7 @@ return {
 				Keyword = " ",
 				Variable = " ",
 				Field = " ",
+				Property = " ",
 				Function = "󰡱 ",
 				Method = " ",
 				Enum = " ",
@@ -26,6 +27,7 @@ return {
 				Struct = " ",
 				Interface = " ",
 				Module = "󰘦 ",
+				File = "󰈙 ",
 			}
 
 			-- Main setup
