@@ -33,9 +33,6 @@ return {
 						end
 					end,
 				},
-				altfile = function()
-					return vim.fn.fnamemodify(vim.fn.bufname("#"), ":t")
-				end,
 				-- Display cwd with an icon
 				cwd = function()
 					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
@@ -66,8 +63,8 @@ return {
 
 				sections = {
 					lualine_a = { components.filename },
-					lualine_b = { components.altfile },
-					lualine_c = { "filetype", "fileformat", "encoding" },
+					lualine_b = { "filetype", "fileformat" },
+					lualine_c = { "encoding" },
 					lualine_x = {},
 					lualine_y = { components.cwd, "branch", "diff" },
 					lualine_z = { "%c:%l/%L" }, -- [Current byte], [Current line]/[Total lines]
