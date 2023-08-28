@@ -43,15 +43,6 @@ return {
 		config = function(plugin, opts)
 			vim.cmd("silent TSUpdate")
 			require("nvim-treesitter.configs").setup(opts)
-
-			-- Enable folding (but it kinda sucks)
-			require("utils.load").options {
-				foldlevelstart = 99,
-				foldminlines = 5,
-				foldnestmax = 10,
-				foldexpr = "nvim_treesitter#foldexpr()",
-				foldmethod = "expr",
-			}
 		end,
 	},
 	{
