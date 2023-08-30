@@ -21,7 +21,7 @@ return {
 			},
 			extra = {
 				above = "<Leader>/K",
-				belove = "<Leader>/J",
+				below = "<Leader>/J",
 				eol = "<Leader>/L",
 			},
 		},
@@ -42,7 +42,7 @@ return {
 			local load = require("utils.load")
 
 			load.options {
-				foldcolumn = "1",
+				foldcolumn = "0",
 				foldlevel = 99,
 				foldlevelstart = 99,
 				foldenable = true,

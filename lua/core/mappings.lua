@@ -64,7 +64,4 @@ return {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
 		["<A-l>"] = { "<right>", { desc = "Move right" } },
 	},
-	t = {
-		["<Esc>"] = { "<C-\\><C-n>", { desc = "Esc to exit terminal (like all other modes)" } },
-	},
 }
