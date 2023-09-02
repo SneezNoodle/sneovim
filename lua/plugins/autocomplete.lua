@@ -72,6 +72,7 @@ return {
 					["<A-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
 					["<A-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
 
+					-- Move these to a luasnip config
 					["<A-l>"] = cmp.mapping(function(fallback)
 						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
@@ -121,7 +122,7 @@ return {
 				}),
 			})
 
-			-- LSPConfig setup is in its own config file
+			vim.opt.pumheight = 15
 		end,
 	},
 	{
