@@ -37,6 +37,7 @@ return {
 				cwd = function()
 					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
 				end,
+				pos= "%c:%l/%L" -- [Current byte], [Current line]/[Total lines]
 			}
 			require("lualine").setup {
 				options = {
@@ -67,14 +68,14 @@ return {
 					lualine_c = { "encoding" },
 					lualine_x = {},
 					lualine_y = { components.cwd, "branch", "diff" },
-					lualine_z = { "%c:%l/%L" }, -- [Current byte], [Current line]/[Total lines]
+					lualine_z = { components.pos },
 				},
 				inactive_sections = {
 					lualine_a = {},
 					lualine_b = { components.filename },
 					lualine_c = {},
 					lualine_x = {},
-					lualine_y = { "%c:%l/%L" },
+					lualine_y = { components.pos },
 					lualine_z = {},
 				},
 			}
