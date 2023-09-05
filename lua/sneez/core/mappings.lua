@@ -12,7 +12,8 @@ return {
 		["<Leader>or"] = { "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" } },
 		["<Leader>ol"] = { "<cmd>set list!<cr>", { desc = "Toggle list (show hidden characters)" } },
 		["<Leader>oh"] = { "<cmd>set hls!<cr>", { desc = "Toggle highlighting searches" } },
-		["<Leader>oH"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
+
+		["<Leader>H"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
 
 		-- Tabs
 		["<Tab>"] = { "gt", { desc = "Next tab" } },
@@ -59,6 +60,9 @@ return {
 		["<A-j>"] = { "<down>", { desc = "Move down" } },
 		["<A-k>"] = { "<up>", { desc = "Move up" } },
 		["<A-l>"] = { "<right>", { desc = "Move right" } },
+
+		["<A-S-h>"] = { "<S-left>", { desc = "One word left" } },
+		["<A-S-l>"] = { "<S-right>", { desc = "One word right" } },
 	},
 	c = {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
