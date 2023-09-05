@@ -5,7 +5,6 @@ return {
 	ruler = false,
 	incsearch = true,
 	hlsearch = false,
-	tildeop = true,
 	wrap = false,
 	cindent = true,
 	splitright = true,
