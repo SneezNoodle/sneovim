@@ -28,7 +28,7 @@ return {
 			-- Use config from respective file
 			mason_lspconfig.setup_handlers {
 				function(server_name)
-					local has_config, config = pcall(require, "lsp-settings." .. server_name)
+					local has_config, config = pcall(require, "sneez.lsp-settings." .. server_name)
 					if not has_config then
 						config = { } -- Use defaults
 					end
