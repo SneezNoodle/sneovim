@@ -1,2 +1,2 @@
-require("core")
-require("lazy-init")
+require("sneez.core")
+require("sneez.lazy-init")

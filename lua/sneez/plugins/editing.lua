@@ -39,7 +39,7 @@ return {
 		dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			local ufo = require("ufo")
-			local load = require("utils.load")
+			local load = require("sneez.utils.load")
 
 			load.options {
 				foldcolumn = "0",

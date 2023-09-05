@@ -48,7 +48,7 @@ return {
 
 			-- Load lsp mappings
 			local prefix = "<Leader>l"
-			require("utils.load").mappings {
+			require("sneez.utils.load").mappings {
 				n = {
 					[prefix .. "d"] = {
 						function()

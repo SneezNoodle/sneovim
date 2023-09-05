@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup Lazy.nvim
-require("lazy").setup("plugins", {
+require("lazy").setup("sneez.plugins", {
 	install = {
 		missing = true,
 		colorscheme = { "catppuccin-mocha" },
