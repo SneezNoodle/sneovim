@@ -67,5 +67,8 @@ return {
 	c = {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
 		["<A-l>"] = { "<right>", { desc = "Move right" } },
+
+		["<A-S-h>"] = { "<S-left>", { desc = "One word left" } },
+		["<A-S-l>"] = { "<S-right>", { desc = "One word right" } },
 	},
 }
