@@ -39,20 +39,15 @@ return {
 		dependencies = { "kevinhwang91/promise-async", "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			local ufo = require("ufo")
-			local load = require("sneez.utils.load")
 
-			load.options {
-				foldcolumn = "0",
-				foldlevel = 99,
-				foldlevelstart = 99,
-				foldenable = true,
-			}
-			load.mappings {
-				n = {
-					["zR"] = { ufo.openAllFolds, { desc = "UFO: Open all folds" } },
-                    ["zM"] = { ufo.closeAllFolds, { desc = "UFO: Close all folds" } },
-				},
-			}
+			vim.opt.foldcolumn = "0"
+			vim.opt.foldlevel = 99
+			vim.opt.foldlevelstart = 99
+			vim.opt.foldenable = true
+
+			vim.keymap.set("n", "zR", ufo.openAllFolds, { desc = "UFO: Open all folds" })
+			vim.keymap.set("n", "zM", ufo.closeAllFolds, { desc = "UFO: Close all folds" })
+
 			require('ufo').setup {
 				provider_selector = function(bufnr, filetype, buftype)
 					return { 'treesitter', 'indent' }

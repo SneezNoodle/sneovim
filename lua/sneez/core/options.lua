@@ -1,4 +1,4 @@
-return {
+local opts = {
 	number = true,
 	relativenumber = true,
 	cursorline = true,
@@ -44,3 +44,9 @@ return {
 	completeopt = { "menu", "noinsert" },
 	virtualedit = { "block" },
 }
+
+return function()
+	for opt, value in pairs(opts) do
+		vim.opt[opt] = value
+	end
+end

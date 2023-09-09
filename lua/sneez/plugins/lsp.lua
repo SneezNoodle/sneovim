@@ -48,40 +48,21 @@ return {
 
 			-- Load lsp mappings
 			local prefix = "<Leader>l"
-			require("sneez.utils.load").mappings {
-				n = {
-					[prefix .. "d"] = {
-						function()
-							vim.diagnostic.open_float { focus = false }
-						end,
-						{ desc = "Open floating diagnostic" },
-					},
-					[prefix .. "r"] = {
-						function()
-							vim.lsp.buf.rename()
-						end,
-						{ desc = "Rename symbol" },
-					},
-					[prefix .. "D"] = {
-						function()
-							vim.lsp.buf.definition()
-						end,
-						{ desc = "Go to definition" },
-					},
-					[prefix .. "s"] = {
-						function()
-							vim.lsp.buf.signature_help()
-						end,
-						{ desc = "View signature" },
-					},
-					[prefix .. "a"] = {
-						function()
-							vim.lsp.buf.code_action()
-						end,
-						{ desc = "View signature" },
-					},
-				},
-			}
+			vim.keymap.set("n", prefix .. "d", function()
+					vim.diagnostic.open_float { focus = false }
+				end, { desc = "Open floating diagnostic" })
+			vim.keymap.set("n", prefix .. "r", function()
+					vim.lsp.buf.rename()
+				end, { desc = "Rename symbol" })
+			vim.keymap.set("n", prefix .. "D", function()
+					vim.lsp.buf.definition()
+				end, { desc = "Go to definition" })
+			vim.keymap.set("n", prefix .. "s", function()
+					vim.lsp.buf.signature_help()
+				end, { desc = "View signature" })
+			vim.keymap.set("n", prefix .. "a", function()
+					vim.lsp.buf.code_action()
+				end, { desc = "View signature" })
 		end,
 	},
 }

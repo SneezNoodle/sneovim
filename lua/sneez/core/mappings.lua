@@ -1,4 +1,4 @@
-return {
+local mode_mappings = {
 	n = {
 		-- Saving/quitting
 		["<Leader>s"] = { "<cmd>w<cr>", { desc = "Save" } },
@@ -72,3 +72,15 @@ return {
 		["<A-S-l>"] = { "<S-right>", { desc = "One word right" } },
 	},
 }
+
+return function()
+	for mode, maps in pairs(mode_mappings) do
+		for key, mapping in pairs(maps) do
+			-- Add each char in modes to a table for vim.keymap.set()
+			local modes = {}
+			for i = 1, #mode do table.insert(modes, string.sub(mode, i, i)) end
+
+			vim.keymap.set(modes, key, mapping[1], mapping[2] or {})
+		end
+	end
+end

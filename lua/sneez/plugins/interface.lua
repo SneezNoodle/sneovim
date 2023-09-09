@@ -80,8 +80,8 @@ return {
 				},
 			}
 
-			-- Stop Lualine from eating my tabline option (feels like there should be a better way than this but I cannot find it)
-			vim.opt.showtabline = require("sneez.core.options").showtabline
+			-- Stop Lualine from eating my tabline option
+			vim.opt.showtabline = 1
 		end,
 	},
 }
