@@ -5,30 +5,48 @@ local opts = {
 	ruler = false,
 	incsearch = true,
 	hlsearch = false,
-	wrap = false,
-	cindent = true,
-	splitright = true,
-	splitbelow = true,
+	laststatus = 2,
+	showtabline = 1, -- Currently set by lualine
 
 	tabstop = 4,
 	shiftwidth = 4,
-	laststatus = 2,
-	showtabline = 1,
+	cindent = true,
+
+	splitright = true,
+	splitbelow = true,
+
+	wrap = false,
+	whichwrap = "",
 	scrolloff = 4,
 	sidescrolloff = 4,
 	sidescroll = 12,
 
-	whichwrap = "",
 	mouse = "",
 
+	foldenable = true,
+	foldlevelstart = 99,
+	foldcolumn = "auto:3",
+	foldmethod = "expr",
+	-- Same as indent but include lines about and below
+	foldexpr = "max([indent(v:lnum+1), indent(v:lnum), indent(v:lnum-1)])/&tabstop",
+	-- Start line ... end line with indent preserved
+	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . ' ... ' . trim(getline(v:foldend))",
+
+	fillchars = {
+		fold = " ",
+		foldopen = "",
+		foldclose = "",
+		eob = " ",
+	},
 	listchars = {
 		eol = "󰌑",
-		tab = "|  ",
-		trail = "~",
-		nbsp = "+",
+		tab = "│  ",
+		trail = "·",
+		nbsp = "-",
 		extends = ">",
 		precedes = "<",
 	},
+
 	sessionoptions = {
 		"blank",
 		"buffers",
@@ -41,7 +59,9 @@ local opts = {
 		"terminal",
 		"winsize",
 	},
+
 	completeopt = { "menu", "noinsert" },
+
 	virtualedit = { "block" },
 }
 
