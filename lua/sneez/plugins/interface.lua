@@ -4,7 +4,7 @@ return {
 		lazy = false,
 		priority = 9001,
 		config = function()
-			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd("colorscheme catppuccin-mocha")
 		end,
 	},
 	{
@@ -19,9 +19,9 @@ return {
 					newfile_status = true,
 					path = 0,
 					symbols = {
-						modified = "{}",
+						modified = "󰅁󰅂",
 						readonly = "[]",
-						newfile = "{󱪝}",
+						newfile = "󰅁󱪝󰅂",
 						unnamed = "[No Name]",
 					},
 					-- Display oil dir
