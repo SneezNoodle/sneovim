@@ -28,7 +28,7 @@ local opts = {
 	foldcolumn = "auto:3",
 	foldmethod = "expr",
 	-- Same as indent but include lines about and below
-	foldexpr = "max([indent(v:lnum+1), indent(v:lnum), indent(v:lnum-1)])/&tabstop",
+	foldexpr = "indent(v:lnum+1) > indent(v:lnum) ? '>' . (indent(v:lnum+1)/&tabstop) : (indent(v:lnum-1) > indent(v:lnum) ? '<' . (indent(v:lnum-1)/&tabstop) : (indent(v:lnum)/&tabstop))",
 	-- Start line ... end line with indent preserved
 	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . ' ... ' . trim(getline(v:foldend))",
 
