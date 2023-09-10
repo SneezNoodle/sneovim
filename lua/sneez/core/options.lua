@@ -24,27 +24,25 @@ local opts = {
 	mouse = "",
 
 	foldenable = true,
+	foldmethod = "indent",
 	foldlevelstart = 99,
 	foldcolumn = "auto:3",
-	foldmethod = "expr",
-	-- Same as indent but include lines about and below
-	foldexpr = "indent(v:lnum+1) > indent(v:lnum) ? '>' . (indent(v:lnum+1)/&tabstop) : (indent(v:lnum-1) > indent(v:lnum) ? '<' . (indent(v:lnum-1)/&tabstop) : (indent(v:lnum)/&tabstop))",
-	-- Start line ... end line with indent preserved
-	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . ' ... ' . trim(getline(v:foldend))",
+	-- Start line with indent preserved and arrow
+	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . ' 󰦸'",
 
 	fillchars = {
 		fold = " ",
-		foldopen = "",
-		foldclose = "",
+		foldopen = "",
+		foldclose = "",
 		eob = " ",
 	},
 	listchars = {
-		eol = "󰌑",
+		eol = " ",
 		tab = "│  ",
 		trail = "·",
 		nbsp = "-",
-		extends = ">",
-		precedes = "<",
+		extends = "",
+		precedes = "",
 	},
 
 	sessionoptions = {
