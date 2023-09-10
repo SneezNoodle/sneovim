@@ -24,11 +24,12 @@ local opts = {
 	mouse = "",
 
 	foldenable = true,
-	foldmethod = "indent",
-	foldlevelstart = 99,
-	foldcolumn = "auto:3",
+	foldmethod = "manual",
+	foldclose = "all",
+	foldlevelstart = 0,
+	foldcolumn = "auto:9",
 	-- Start line with indent preserved and arrow
-	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . ' 󰦸'",
+	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . '... 󰦸'",
 
 	fillchars = {
 		fold = " ",
