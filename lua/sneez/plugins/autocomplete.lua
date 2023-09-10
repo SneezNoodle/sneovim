@@ -12,6 +12,7 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			vim.g.autocomplete_enabled = true
 
 			local kind_icons = {
 				Text = "󰉿 ",
@@ -32,6 +33,7 @@ return {
 
 			-- Main setup
 			cmp.setup {
+				enabled = vim.g.autocomplete_enabled,
 				snippet = {
 					expand = function(args) -- Use LuaSnip
 						luasnip.lsp_expand(args.body)
@@ -123,11 +125,15 @@ return {
 			})
 
 			vim.opt.pumheight = 15
+			vim.keymap.set({"n", "i", "v"}, "<C-A-CR>", function()
+				vim.g.autocomplete_enabled = not vim.g.autocomplete_enabled
+				cmp.setup({ enabled = vim.g.autocomplete_enabled })
+			end, { desc = "Toggle CMP autocompletion" })
 		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",
 		build = "make install_jsregexp",
-		confit = true,
+		config = true,
 	},
 }
