@@ -1,8 +1,8 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
 		config = function()
-			vim.cmd("silent TSUpdate")
 			require("nvim-treesitter.configs").setup {
 				ensure_installed = { "lua" },
 
