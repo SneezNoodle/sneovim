@@ -37,7 +37,7 @@ return {
 				cwd = function()
 					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
 				end,
-				pos= "%c:%l/%L" -- [Current byte], [Current line]/[Total lines]
+				pos= "%c:%l/%L" -- [Current byte]:[Current line]/[Total lines]
 			}
 			require("lualine").setup {
 				options = {
