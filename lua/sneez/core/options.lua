@@ -23,6 +23,10 @@ local opts = {
 
 	mouse = "",
 
+	backup = true,
+	writebackup = true,
+	backupdir = vim.fn.stdpath("state") .. "/backups//",
+
 	foldenable = true,
 	foldmethod = "manual",
 	foldclose = "all",
