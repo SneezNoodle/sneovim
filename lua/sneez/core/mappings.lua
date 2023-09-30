@@ -16,8 +16,10 @@ local mode_mappings = {
 		["<Leader>H"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
 
 		-- Tabs
-		["<Tab>"] = { "gt", { desc = "Next tab" } },
-		["<S-Tab>"] = { "gT", { desc = "Previous tab" } },
+		["<A-]>"] = { "gt", { desc = "Next tab" } },
+		["<A-[>"] = { "gT", { desc = "Previous tab" } },
+		["<Leader>tl"] = { "<cmd>tabmove +1<cr>", { desc = "Move tab left" } },
+		["<Leader>th"] = { "<cmd>tabmove -1<cr>", { desc = "Move tab right" } },
 		["<Leader>tn"] = { "<cmd>tabnew<cr>", { desc = "New tab" } },
 		["<Leader>tc"] = { "<cmd>tabclose<cr>", { desc = "Close tab" } },
 
