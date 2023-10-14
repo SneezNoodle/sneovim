@@ -62,7 +62,7 @@ return {
 				end, { desc = "View signature" })
 			vim.keymap.set("n", prefix .. "a", function()
 					vim.lsp.buf.code_action()
-				end, { desc = "View signature" })
+				end, { desc = "Code action" })
 		end,
 	},
 }
