@@ -65,7 +65,7 @@ local opts = {
 
 	completeopt = { "menu", "noinsert" },
 
-	virtualedit = { "block" },
+	virtualedit = { },
 }
 
 return function()
