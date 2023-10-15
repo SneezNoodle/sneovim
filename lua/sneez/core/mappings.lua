@@ -69,6 +69,8 @@ local mode_mappings = {
 	c = {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
 		["<A-l>"] = { "<right>", { desc = "Move right" } },
+		["<A-k>"] = { "<up>", { desc = "Previous command in history" } },
+		["<A-j>"] = { "<down>", { desc = "Next command in history" } },
 
 		["<A-S-h>"] = { "<S-left>", { desc = "One word left" } },
 		["<A-S-l>"] = { "<S-right>", { desc = "One word right" } },
