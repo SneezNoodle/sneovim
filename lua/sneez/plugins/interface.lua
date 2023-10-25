@@ -1,87 +1,55 @@
 return {
 	{
-		"catppuccin/nvim",
-		lazy = false,
-		priority = 9001,
-		config = function()
-			vim.cmd("colorscheme catppuccin-mocha")
-		end,
+		"akinsho/toggleterm.nvim",
+		opts = {
+			direction = "float",
+			open_mapping = "<C-/>",
+		},
 	},
 	{
-		"nvim-lualine/lualine.nvim",
+		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			-- Extract more complex components for better reusability
-			local components = {
-				filename = {
-					"filename",
-					file_status = true,
-					newfile_status = true,
-					path = 0,
-					symbols = {
-						modified = "󰅁󰅂",
-						readonly = "[]",
-						newfile = "󰅁󱪝󰅂",
-						unnamed = "[No Name]",
-					},
-					-- Display oil dir
-					fmt = function(str, ctx)
-						if vim.o.ft == "oil" then
-							return vim.fn.fnamemodify(require("oil").get_current_dir(), ":~")
-						else
-							return str
-						end
-					end,
+			local oil = require("oil")
+			oil.setup {
+				win_options = {
+					number = true,
+					relativenumber = false,
 				},
-				-- Display cwd with an icon
-				cwd = function()
-					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
-				end,
-				pos= "%c:%l/%L" -- [Current byte]:[Current line]/[Total lines]
-			}
-			require("lualine").setup {
-				options = {
-					component_separators = { left = "", right = "" },
-					section_separators = { left = "", right = "" },
+				use_default_keymaps = false,
+				keymaps = {
+					["g?"] = "actions.show_help",
+					["<F5>"] = "actions.refresh",
+					["<C-.>"] = "actions.toggle_hidden",
 
-					-- ignore_focus = { "oil" },
+					["<CR>"] = "actions.select",
+					["<C-s>"] = "actions.select_split",
+					["<C-v>"] = "actions.select_vsplit",
+					["<C-t>"] = "actions.select_tab",
+					["<C-p>"] = "actions.preview",
+					["<C-c>"] = "actions.close",
 
-					refresh = {
-						statusline = 500,
-						tabline = 500,
-					},
-				},
-				extensions = { "toggleterm" },
+					["-"] = "actions.parent",
 
-				tabline = {
-					lualine_a = { "tabs" },
-					lualine_b = {},
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = {},
+					["_"] = "actions.open_cwd",
+					["="] = "actions.cd",
+					["+"] = "actions.tcd",
 				},
-
-				sections = {
-					lualine_a = { components.filename },
-					lualine_b = { "filetype", "fileformat" },
-					lualine_c = { "encoding" },
-					lualine_x = {},
-					lualine_y = { components.cwd, "branch", "diff" },
-					lualine_z = { components.pos },
+				float = {
+					border = "single",
+					win_options = { winblend = 0 },
 				},
-				inactive_sections = {
-					lualine_a = {},
-					lualine_b = { components.filename },
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = { components.pos },
-					lualine_z = {},
-				},
+				preview = { border = "single" },
+				progress = { border = "single" },
 			}
 
-			-- Stop Lualine from eating my tabline option
-			vim.opt.showtabline = 1
+			-- Set float toggle keymaps
+			vim.keymap.set("n", "<Leader>e", function()
+				oil.toggle_float()
+			end, { desc = "Toggle oil float (buffer parent)" })
+			vim.keymap.set("n", "<Leader>E", function()
+				oil.toggle_float(vim.fn.getcwd())
+			end, { desc = "Toggle oil float (cwd)" })
 		end,
 	},
 }
