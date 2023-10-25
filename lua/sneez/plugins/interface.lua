@@ -7,6 +7,12 @@ return {
 		},
 	},
 	{
+		"sneeznoodle/bufmenu.nvim",
+		opts = {
+			use_bdelete = false,
+		},
+	},
+	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
