@@ -19,9 +19,9 @@ return {
 					newfile_status = true,
 					path = 0,
 					symbols = {
-						modified = "󰅁󰅂",
-						readonly = "[]",
-						newfile = "󰅁󱪝󰅂",
+						modified = "[+]",
+						readonly = "[-]",
+						newfile = "[*]",
 						unnamed = "[No Name]",
 					},
 					-- Display oil dir
