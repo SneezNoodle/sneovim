@@ -31,8 +31,6 @@ local mode_mappings = {
 		["<Leader>bD"] = { "<cmd>bdel!<cr>", { desc = "Force delete current buffer" } },
 
 		-- View navigation
-		["<A-w>"] = { "<C-w>", { desc = "Easier to press with my laptop keyboard" } },
-
 		["<C-d>"] = { "<C-d>zz", { desc = "Centre view after jumping down" } },
 		["<C-u>"] = { "<C-u>zz", { desc = "Centre view after jumping up" } },
 
@@ -65,6 +63,19 @@ local mode_mappings = {
 
 		["<A-S-h>"] = { "<S-left>", { desc = "One word left" } },
 		["<A-S-l>"] = { "<S-right>", { desc = "One word right" } },
+
+		["<A-t>"] = { function()
+			local cur = vim.fn.getcurpos() or { 0, 1, 1 }
+			local tag = vim.fn.input("Tag: ")
+			vim.api.nvim_buf_set_text(0, cur[2]-1, cur[3]-1, cur[2]-1, cur[3]-1, { "<"..tag..">".."</"..tag..">" })
+			vim.fn.cursor(cur[2], cur[3]+#tag+2) -- Move between tags
+		end, { desc = "Insert markup tags" } },
+		["<A-T>"] = { function()
+			local cur = vim.fn.getcurpos() or { 0, 1, 1 }
+			local tag = vim.fn.input("Tag: ")
+			vim.api.nvim_buf_set_text(0, cur[2]-1, cur[3]-1, cur[2]-1, cur[3]-1, { "<"..tag..">", "</"..tag..">" })
+			vim.cmd("normal! O")
+		end, { desc = "Insert markup tags" } },
 	},
 	c = {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
