@@ -1,8 +1,8 @@
 local mode_mappings = {
 	n = {
 		-- Saving/quitting
-		["<Leader>s"] = { "<cmd>w<cr>", { desc = "Save" } },
-		["<Leader>S"] = { "<cmd>wa<cr>", { desc = "Save all" } },
+		["<Leader>w"] = { "<cmd>w<cr>", { desc = "Save" } },
+		["<Leader>W"] = { "<cmd>wa<cr>", { desc = "Save all" } },
 		["<Leader>q"] = { "<cmd>q<cr>", { desc = "Quit" } },
 		["<Leader>Q"] = { "<cmd>qa<cr>", { desc = "Quit all" } },
 		["<Leader><C-q>"] = { "<cmd>qa!<cr>", { desc = "Force quit all" } },
@@ -50,7 +50,8 @@ local mode_mappings = {
 		["<C-,>"] = { "<C-W><", { desc = "Shrink vertical split" } },
 
 		-- Config shortcut
-		["<F1>"] = { "<cmd>tabnew | edit ~/.config/nvim/lua/<cr>", { desc = "Edit config" } },
+		["<F1>"] = { "<cmd>tabnew | edit " .. vim.fn.stdpath("config") .. "/lua/sneez/<cr>", { desc = "Edit config" } },
+		["<F2>"] = { "<cmd>tabnew | edit " .. vim.fn.stdpath("state") .. "/backups/<cr>", { desc = "Edit config" } },
 	},
 	i = {
 		["<C-l>"] = { "<del>", { desc = "Delete (like <C-h>)" } },
