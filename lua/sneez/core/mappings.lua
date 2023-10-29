@@ -13,7 +13,9 @@ local mode_mappings = {
 		["<Leader>ol"] = { "<cmd>set list!<cr>", { desc = "Toggle list (show hidden characters)" } },
 		["<Leader>oh"] = { "<cmd>set hls!<cr>", { desc = "Toggle highlighting searches" } },
 
-		["<Leader>H"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
+		-- Editing
+		["<Leader>h"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
+		["<Leader>i"] = { "<cmd>execute 's/[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
 
 		-- Tabs
 		["<A-]>"] = { "gt", { desc = "Next tab" } },
