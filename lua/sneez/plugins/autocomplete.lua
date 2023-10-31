@@ -57,10 +57,10 @@ return {
 					end,
 				},
 				mapping = {
-					["<C-Enter>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
+					["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
 
-					["<C-h>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
-					["<C-l>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
+					["<C-bs>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
+					["<C-cr>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
 
 					["<C-j>"] = cmp.mapping(
 						cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
@@ -75,14 +75,14 @@ return {
 					["<A-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
 
 					-- Move these to a luasnip config
-					["<A-n>"] = cmp.mapping(function(fallback)
+					["<A-cr>"] = cmp.mapping(function(fallback)
 						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
 						else
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<A-p>"] = cmp.mapping(function(fallback)
+					["<A-bs>"] = cmp.mapping(function(fallback)
 						if luasnip.jumpable(-1) then
 							luasnip.jump(-1)
 						else
