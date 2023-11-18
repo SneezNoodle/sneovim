@@ -1,7 +1,12 @@
 return {
 	{
 		"kylechui/nvim-surround",
-		--opts = { }, -- TODO add custom maps
+		opts = {
+			keymaps = {
+				visual = "gs",
+				visual_line = "gS",
+			},
+		},
 		config = true,
 	},
 	{
