@@ -26,11 +26,9 @@ return {
 					},
 					-- Display oil dir
 					fmt = function(str, ctx)
-						if vim.o.ft == "oil" then
-							return vim.fn.fnamemodify(require("oil").get_current_dir(), ":~")
-						else
-							return str
-						end
+						return vim.o.ft == "oil" and
+							"Oil: " .. vim.fn.fnamemodify(require("oil").get_current_dir(), ":~") or
+							str
 					end,
 				},
 				-- Display cwd with an icon

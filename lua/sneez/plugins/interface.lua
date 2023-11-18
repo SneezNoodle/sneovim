@@ -2,7 +2,8 @@ return {
 	{
 		"akinsho/toggleterm.nvim",
 		opts = {
-			direction = "float",
+			direction = "vertical",
+			size = 75,
 			open_mapping = "<C-/>",
 		},
 	},
@@ -49,13 +50,9 @@ return {
 				progress = { border = "single" },
 			}
 
-			-- Set float toggle keymaps
-			vim.keymap.set("n", "<Leader>e", function()
-				oil.toggle_float()
-			end, { desc = "Toggle oil float (buffer parent)" })
-			vim.keymap.set("n", "<Leader>E", function()
-				oil.toggle_float(vim.fn.getcwd())
-			end, { desc = "Toggle oil float (cwd)" })
+			-- Set open mappings
+			vim.keymap.set("n", "<Leader>e", function() oil.open() end, { desc = "Open oil current buffer directory" })
+			vim.keymap.set("n", "<Leader>E", function() oil.open(vim.fn.getcwd()) end, { desc = "Open oil to current working directory" })
 		end,
 	},
 }
