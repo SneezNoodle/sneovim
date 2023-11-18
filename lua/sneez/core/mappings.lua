@@ -20,10 +20,10 @@ local mode_mappings = {
 		-- Tabs
 		["<A-]>"] = { "gt", { desc = "Next tab" } },
 		["<A-[>"] = { "gT", { desc = "Previous tab" } },
-		["<Leader>tl"] = { "<cmd>tabmove +1<cr>", { desc = "Move tab left" } },
-		["<Leader>th"] = { "<cmd>tabmove -1<cr>", { desc = "Move tab right" } },
-		["<Leader>tn"] = { "<cmd>tabnew<cr>", { desc = "New tab" } },
-		["<Leader>tc"] = { "<cmd>tabclose<cr>", { desc = "Close tab" } },
+		["<A-}>"] = { "<cmd>tabmove +1<cr>", { desc = "Move tab left" } },
+		["<A-{>"] = { "<cmd>tabmove -1<cr>", { desc = "Move tab right" } },
+		["<A-n>"] = { "<cmd>tabnew<cr>", { desc = "New tab" } },
+		["<A-c>"] = { "<cmd>tabclose<cr>", { desc = "Close tab" } },
 
 		-- Buffers
 		["<Leader>bl"] = { "<cmd>ls<cr>", { desc = "List buffers" } },
