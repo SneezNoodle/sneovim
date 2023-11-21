@@ -2,10 +2,13 @@ return {
 	{
 		"akinsho/toggleterm.nvim",
 		opts = {
-			direction = "vertical",
-			size = 75,
+			direction = "float",
 			open_mapping = "<C-/>",
+			float_opts = {
+				border = "single",
+			},
 		},
+		config = true,
 	},
 	{
 		"sneeznoodle/bufmenu.nvim",
