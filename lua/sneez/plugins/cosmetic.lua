@@ -11,8 +11,19 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			-- Extract more complex components for better reusability
 			local components = {
+				-- Tabline
+				tabs = {
+					"tabs",
+					show_modified_status = false,
+				},
+				term = function()
+					return vim.o.ft == "toggleterm" and
+						vim.fn.bufname():gsub(".*(#[0-9]*)", "Terminal %1") or
+					""
+				end,
+
+				-- Statusline
 				filename = {
 					"filename",
 					file_status = true,
@@ -26,14 +37,22 @@ return {
 					},
 					-- Display oil dir
 					fmt = function(str, ctx)
+						if vim.o.ft == "oil" then
+							local oil_path = vim.fn.fnamemodify(require("oil").get_current_dir(), ":~:.")
+							local first = oil_path:sub(1,1)
+							oil_path = (first ~= "~" and first ~= "/") and "./" .. oil_path or oil_path
+
+							return " " .. oil_path
+						else
+							return str
+						end
 						return vim.o.ft == "oil" and
-							"Oil: " .. vim.fn.fnamemodify(require("oil").get_current_dir(), ":~") or
-							str
+						str
 					end,
 				},
 				-- Display cwd with an icon
 				cwd = function()
-					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 				end,
 				pos= "%c:%l/%L" -- [Current byte]:[Current line]/[Total lines]
 			}
@@ -41,8 +60,6 @@ return {
 				options = {
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
-
-					-- ignore_focus = { "oil" },
 
 					refresh = {
 						statusline = 500,
@@ -52,12 +69,12 @@ return {
 				extensions = { "toggleterm" },
 
 				tabline = {
-					lualine_a = { "tabs" },
+					lualine_a = { components.tabs },
 					lualine_b = {},
 					lualine_c = {},
 					lualine_x = {},
 					lualine_y = {},
-					lualine_z = {},
+					lualine_z = { components.term },
 				},
 
 				sections = {
@@ -77,9 +94,6 @@ return {
 					lualine_z = {},
 				},
 			}
-
-			-- Stop Lualine from eating my tabline option
-			vim.opt.showtabline = 1
 		end,
 	},
 }
