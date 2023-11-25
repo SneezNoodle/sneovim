@@ -125,7 +125,7 @@ return {
 			})
 
 			vim.opt.pumheight = 15
-			vim.keymap.set({"n", "i", "v"}, "<C-A-CR>", function()
+			vim.keymap.set({"n", "i", "v"}, "<C-S-space>", function()
 				vim.g.autocomplete_enabled = not vim.g.autocomplete_enabled
 				cmp.setup({ enabled = vim.g.autocomplete_enabled })
 			end, { desc = "Toggle CMP autocompletion" })
