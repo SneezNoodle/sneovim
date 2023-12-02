@@ -3,7 +3,7 @@ return {
 		"akinsho/toggleterm.nvim",
 		opts = {
 			direction = "float",
-			open_mapping = "<C-/>",
+			open_mapping = "<A-'>",
 			float_opts = {
 				border = "single",
 			},
@@ -30,7 +30,7 @@ return {
 				keymaps = {
 					["g?"] = "actions.show_help",
 					["<F5>"] = "actions.refresh",
-					["<C-.>"] = "actions.toggle_hidden",
+					["<C-m>"] = "actions.toggle_hidden",
 
 					["<CR>"] = "actions.select",
 					["<C-s>"] = "actions.select_split",

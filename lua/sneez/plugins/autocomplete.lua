@@ -58,9 +58,9 @@ return {
 				},
 				mapping = {
 					["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
+					["<C-S-space>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
 
-					["<C-bs>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
-					["<C-cr>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
+					["<A-cr>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
 
 					["<C-j>"] = cmp.mapping(
 						cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
@@ -71,22 +71,21 @@ return {
 						{ "i", "s", "c" }
 					),
 
-					["<A-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
-					["<A-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
+					["<C-J>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
+					["<C-K>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
 
-					-- Move these to a luasnip config
-					["<A-cr>"] = cmp.mapping(function(fallback)
+					["<A-n>"] = cmp.mapping(function(fallback)
 						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
-						else
-							fallback()
+						-- else
+						-- 	fallback()
 						end
 					end, { "i", "s" }),
-					["<A-bs>"] = cmp.mapping(function(fallback)
+					["<A-p>"] = cmp.mapping(function(fallback)
 						if luasnip.jumpable(-1) then
 							luasnip.jump(-1)
-						else
-							fallback()
+						-- else
+						-- 	fallback()
 						end
 					end, { "i", "s" }),
 				},
@@ -125,7 +124,7 @@ return {
 			})
 
 			vim.opt.pumheight = 15
-			vim.keymap.set({"n", "i", "v"}, "<C-S-space>", function()
+			vim.keymap.set({"n", "i", "v"}, "<C-A-space>", function()
 				vim.g.autocomplete_enabled = not vim.g.autocomplete_enabled
 				cmp.setup({ enabled = vim.g.autocomplete_enabled })
 			end, { desc = "Toggle CMP autocompletion" })

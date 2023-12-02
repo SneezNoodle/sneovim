@@ -46,10 +46,10 @@ local mode_mappings = {
 		["<A-k>"] = { "2<C-y>", { desc = "Pan up" } },
 		["<A-l>"] = { "4zl", { desc = "Pan right" } },
 
-		["<C-=>"] = { "<C-W>+", { desc = "Grow horizontal split" } },
-		["<C-->"] = { "<C-W>-", { desc = "Shrink horizontal split" } },
-		["<C-.>"] = { "<C-W>>", { desc = "Grow vertical split" } },
-		["<C-,>"] = { "<C-W><", { desc = "Shrink vertical split" } },
+		["<A-=>"] = { "<C-W>+", { desc = "Grow horizontal split" } },
+		["<A-->"] = { "<C-W>-", { desc = "Shrink horizontal split" } },
+		["<A-.>"] = { "<C-W>>", { desc = "Grow vertical split" } },
+		["<A-,>"] = { "<C-W><", { desc = "Shrink vertical split" } },
 
 		-- Config shortcut
 		["<F1>"] = { "<cmd>tabnew | edit " .. vim.fn.stdpath("config") .. "/lua/sneez/<cr>", { desc = "Edit config" } },
