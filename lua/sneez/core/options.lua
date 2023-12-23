@@ -34,7 +34,7 @@ local opts = {
 	foldlevelstart = 0,
 	foldcolumn = "auto:9",
 	-- Start line with indent preserved and arrow
-	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . '... 󰦸'",
+	foldtext = "repeat(' ', indent(v:foldstart)) . trim(getline(v:foldstart)) . ' 󰦸'",
 
 	fillchars = {
 		fold = " ",
