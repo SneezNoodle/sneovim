@@ -54,8 +54,8 @@ return {
 			}
 
 			-- Set open mappings
-			vim.keymap.set("n", "<Leader>e", function() oil.open() end, { desc = "Open oil current buffer directory" })
-			vim.keymap.set("n", "<Leader>E", function() oil.open(vim.fn.getcwd()) end, { desc = "Open oil to current working directory" })
+			vim.keymap.set("n", "<Leader>e", function() oil.open() end, { desc = "Open oil to current buffer directory" })
+			vim.keymap.set("n", "<Leader>E", function() oil.open(vim.fn.getcwd()) end, { desc = "Open oil to working directory" })
 		end,
 	},
 }
