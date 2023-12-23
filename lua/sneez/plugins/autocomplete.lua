@@ -71,21 +71,21 @@ return {
 						{ "i", "s", "c" }
 					),
 
-					["<C-J>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
-					["<C-K>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
+					["<C-A-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
+					["<C-A-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
 
 					["<A-n>"] = cmp.mapping(function(fallback)
 						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
-						-- else
-						-- 	fallback()
+						 else
+							vim.print("No further snippet tags")
 						end
 					end, { "i", "s" }),
 					["<A-p>"] = cmp.mapping(function(fallback)
 						if luasnip.jumpable(-1) then
 							luasnip.jump(-1)
-						-- else
-						-- 	fallback()
+						else
+							vim.print("No previous snippet tags")
 						end
 					end, { "i", "s" }),
 				},
