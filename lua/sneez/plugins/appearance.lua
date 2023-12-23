@@ -19,8 +19,11 @@ return {
 				},
 				term = function()
 					return vim.o.ft == "toggleterm" and
-						vim.fn.bufname():gsub(".*(#[0-9]*)", "Terminal %1") or
+						vim.fn.bufname():gsub(".*(#[0-9]*)", " Terminal %1") or
 					""
+				end,
+				cwd = function()
+					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 				end,
 
 				-- Statusline
@@ -40,20 +43,14 @@ return {
 						if vim.o.ft == "oil" then
 							local oil_path = vim.fn.fnamemodify(require("oil").get_current_dir(), ":~:.")
 							local first = oil_path:sub(1,1)
-							oil_path = (first ~= "~" and first ~= "/") and "./" .. oil_path or oil_path
+							oil_path = (first ~= "~" and first ~= "/") and "./" .. oil_path or oil_path -- Add ./ if not relative to home or root
 
 							return " " .. oil_path
 						else
 							return str
 						end
-						return vim.o.ft == "oil" and
-						str
 					end,
 				},
-				-- Display cwd with an icon
-				cwd = function()
-					return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-				end,
 				pos= "%c:%l/%L" -- [Current byte]:[Current line]/[Total lines]
 			}
 			require("lualine").setup {
@@ -73,8 +70,8 @@ return {
 					lualine_b = {},
 					lualine_c = {},
 					lualine_x = {},
-					lualine_y = {},
-					lualine_z = { components.term },
+					lualine_y = { components.term },
+					lualine_z = { components.cwd },
 				},
 
 				sections = {
@@ -82,7 +79,7 @@ return {
 					lualine_b = { "filetype", "fileformat" },
 					lualine_c = { "encoding" },
 					lualine_x = {},
-					lualine_y = { components.cwd, "branch", "diff" },
+					lualine_y = { "branch", "diff" },
 					lualine_z = { components.pos },
 				},
 				inactive_sections = {
