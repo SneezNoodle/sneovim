@@ -10,11 +10,11 @@ return {
 				indent = { enable = true },
 				incremental_selection = {
 					enable = true,
-					keymaps = { -- Prefix mnemonic: node
-						init_selection = "<Leader>nn",
-						node_incremental = "<C-=>",
-						node_decremental = "<C-->",
-						scope_incremental = "<C-s>",
+					keymaps = {
+						init_selection = "<A-v>",
+						node_incremental = "<A-=>",
+						node_decremental = "<A-->",
+						scope_incremental = "<A-s>",
 					},
 				},
 				textobjects = {
