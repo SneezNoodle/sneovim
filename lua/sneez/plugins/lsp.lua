@@ -30,7 +30,7 @@ return {
 			local server_configs = require("sneez.lsp-settings")
 			mason_lspconfig.setup_handlers {
 				function(server_name)
-					lspconfig[server_name].setup(server_configs[server_name])
+					lspconfig[server_name].setup(server_configs[server_name] or {})
 				end
 			}
 
