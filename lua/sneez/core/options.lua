@@ -6,7 +6,7 @@ local opts = {
 	incsearch = true,
 	hlsearch = false,
 	laststatus = 2,
-	showtabline = 1, -- Currently set by lualine
+	-- showtabline = 1, -- Currently set by lualine
 	showmode = false,
 
 	tabstop = 4,
