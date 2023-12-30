@@ -44,7 +44,7 @@ local opts = {
 	},
 	listchars = {
 		eol = "󰌑",
-		tab = "│  ",
+		tab = "│--",
 		multispace = "│···",
 		trail = "·",
 		nbsp = "-",
