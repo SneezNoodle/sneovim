@@ -33,9 +33,6 @@ local mode_mappings = {
 		["<Leader>bD"] = { "<cmd>bdel!<cr>", { desc = "Force delete current buffer" } },
 
 		-- View navigation
-		["<C-d>"] = { "<C-d>zz", { desc = "Centre view after jumping down" } },
-		["<C-u>"] = { "<C-u>zz", { desc = "Centre view after jumping up" } },
-
 		["<C-h>"] = { "<C-w>h", { desc = "Switch window left" } },
 		["<C-j>"] = { "<C-w>j", { desc = "Switch window down" } },
 		["<C-k>"] = { "<C-w>k", { desc = "Switch window up" } },
