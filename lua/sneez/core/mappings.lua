@@ -47,7 +47,7 @@ local mode_mappings = {
 		["<A-->"] = { "<C-W>-", { desc = "Shrink horizontal split" } },
 		["<A-.>"] = { "<C-W>>", { desc = "Grow vertical split" } },
 		["<A-,>"] = { "<C-W><", { desc = "Shrink vertical split" } },
-		["<A-+>"] = { "<C-W>=", { desc = "Evenly distribute screen space" } },
+		["<A-0>"] = { "<C-W>=", { desc = "Evenly distribute screen space" } },
 
 		-- Config shortcut
 		["<F1>"] = { "<cmd>tabnew | edit " .. vim.fn.stdpath("config") .. "/lua/sneez/<cr>", { desc = "Edit config" } },
