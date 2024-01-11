@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -32,12 +33,12 @@ return {
 						enable = true,
 
 						swap_next = {
-							["<Leader>nl"] = "@parameter.inner",
-							["<Leader>nj"] = "@function.outer",
+							["<Leader>tl"] = "@parameter.inner",
+							["<Leader>tj"] = "@function.outer",
 						},
 						swap_previous = {
-							["<Leader>nh"] = "@parameter.inner",
-							["<Leader>nk"] = "@function.outer",
+							["<Leader>th"] = "@parameter.inner",
+							["<Leader>tk"] = "@function.outer",
 						},
 					},
 				},
