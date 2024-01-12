@@ -15,7 +15,7 @@ local mode_mappings = {
 
 		-- Editing
 		["<Leader>h"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
-		["<Leader>i"] = { "<cmd>execute 's/[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
+		["<Leader>i"] = { "<cmd>execute 's/^[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
 
 		-- Tabs
 		["<A-]>"] = { "gt", { desc = "Next tab" } },
@@ -78,6 +78,9 @@ local mode_mappings = {
 			vim.cmd("normal! O")
 		end, { desc = "Insert markup tags" } },
 	},
+	v = {
+		["<Leader>i"] = { "<cmd>execute '\'<,\'>s/^[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
+	},
 	c = {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
 		["<A-l>"] = { "<right>", { desc = "Move right" } },
@@ -89,14 +92,16 @@ local mode_mappings = {
 	},
 }
 
-return function()
-	for mode, maps in pairs(mode_mappings) do
-		for key, mapping in pairs(maps) do
-			-- Add each char in modes to a table for vim.keymap.set()
-			local modes = {}
-			for i = 1, #mode do table.insert(modes, string.sub(mode, i, i)) end
+return {
+	load = function()
+		for mode, maps in pairs(mode_mappings) do
+			for key, mapping in pairs(maps) do
+				-- Add each char in modes to a table for vim.keymap.set()
+				local modes = {}
+				for i = 1, #mode do table.insert(modes, string.sub(mode, i, i)) end
 
-			vim.keymap.set(modes, key, mapping[1], mapping[2] or {})
+				vim.keymap.set(modes, key, mapping[1], mapping[2] or {})
+			end
 		end
 	end
-end
+}

@@ -1,7 +1,7 @@
 local function reload(coreFile)
 	local path = "sneez.core." .. coreFile
 	package.loaded[path] = nil
-	require(path)()
+	require(path).load()
 end
 
 local commands = {
@@ -9,12 +9,12 @@ local commands = {
 	ReloadMappings = { function() reload("mappings") end },
 }
 
-return function()
-	local defaultOpts = {
-
-	}
-	for cmdName, cmdData in pairs(commands) do
-		local opts = vim.tbl_extend("keep", cmdData[2] or {}, defaultOpts)
-		vim.api.nvim_create_user_command(cmdName, cmdData[1], opts)
+return {
+	load = function()
+		local default_opts = { }
+		for cmd_name, cmd_data in pairs(commands) do
+			local opts = vim.tbl_extend("keep", cmd_data[2] or {}, default_opts)
+			vim.api.nvim_create_user_command(cmd_name, cmd_data[1], opts)
+		end
 	end
-end
+}

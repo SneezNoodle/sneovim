@@ -69,23 +69,11 @@ local opts = {
 
 	virtualedit = { },
 }
-local function get_shell()
-	-- Return the first one that is installed
-	local priority = {
-		"/usr/bin/fish",
-		"/usr/bin/zsh",
-	}
-	for _, shell in ipairs(priority) do
-		if vim.loop.fs_stat(shell) then
-			return shell
-		end
-	end
-	return "/usr/bin/bash" -- Return bash as a fallback
-end
 
-return function()
-	vim.opt.shell = get_shell()
-	for opt, value in pairs(opts) do
-		vim.opt[opt] = value
-	end
-end
+return {
+	load = function()
+		for opt, value in pairs(opts) do
+			vim.opt[opt] = value
+		end
+	end,
+}
