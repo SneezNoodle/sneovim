@@ -57,10 +57,12 @@ return {
 					end,
 				},
 				mapping = {
-					["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
-					["<C-S-space>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
+					-- Toggle cmp menu
+					["<C-space>"] = cmp.mapping(function()
+						if cmp.visible() then cmp.abort() else cmp.complete() end
+					end, { "i", "s", "c" }),
 
-					["<A-cr>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
+					["<C-e>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "s", "c" }),
 
 					["<C-j>"] = cmp.mapping(
 						cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
@@ -74,14 +76,14 @@ return {
 					["<C-A-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s" }),
 					["<C-A-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s" }),
 
-					["<A-n>"] = cmp.mapping(function(fallback)
+					["<C-n>"] = cmp.mapping(function()
 						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
 						 else
 							vim.print("No further snippet tags")
 						end
 					end, { "i", "s" }),
-					["<A-p>"] = cmp.mapping(function(fallback)
+					["<C-p>"] = cmp.mapping(function()
 						if luasnip.jumpable(-1) then
 							luasnip.jump(-1)
 						else
