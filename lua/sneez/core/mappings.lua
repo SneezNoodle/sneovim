@@ -15,7 +15,7 @@ local mode_mappings = {
 
 		-- Editing
 		["<Leader>h"] = { "<cmd>nohl<cr>", { desc = "Stop highlighting searches temporarily" } },
-		["<Leader>i"] = { "<cmd>execute 's/^[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
+		["<Leader><Tab>"] = { "<cmd>execute 's/^[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
 
 		-- Tabs
 		["<A-]>"] = { "gt", { desc = "Next tab" } },
@@ -28,9 +28,8 @@ local mode_mappings = {
 		-- Buffers
 		["<Leader>bl"] = { "<cmd>ls<cr>", { desc = "List buffers" } },
 		["<Leader>bL"] = { "<cmd>ls!<cr>", { desc = "List all buffers" } },
-		["<Leader>ba"] = { "<C-^>", { desc = "Alternate buffer" } },
-		["<Leader>bd"] = { "<cmd>bdel<cr>", { desc = "Delete current buffer" } },
-		["<Leader>bD"] = { "<cmd>bdel!<cr>", { desc = "Force delete current buffer" } },
+		["<Leader>bd"] = { "<cmd>exec 'bdel'.v:count>0?v:count:''<cr>", { desc = "Delete current buffer" } },
+		["<Leader>bD"] = { "<cmd>exec 'bdel!'.v:count>0?v:count:''<cr>", { desc = "Force delete current buffer" } },
 
 		-- View navigation
 		["<C-h>"] = { "<C-w>h", { desc = "Switch window left" } },
@@ -79,7 +78,7 @@ local mode_mappings = {
 		end, { desc = "Insert markup tags" } },
 	},
 	v = {
-		["<Leader>i"] = { "<cmd>execute '\'<,\'>s/^[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
+		["<Leader><Tab>"] = { "<cmd>execute '\'<,\'>s/^[\\t]*/'.repeat('\\t', v:count)<cr>", { desc = "Set indent level" } },
 	},
 	c = {
 		["<A-h>"] = { "<left>", { desc = "Move left" } },
