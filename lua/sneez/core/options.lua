@@ -64,6 +64,11 @@ local opts = {
 		"terminal",
 		"winsize",
 	},
+	viewoptions = {
+		"folds",
+		"cursor",
+		"curdir",
+	},
 
 	completeopt = { "menu", "noinsert" },
 

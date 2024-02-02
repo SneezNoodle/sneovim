@@ -48,9 +48,10 @@ local mode_mappings = {
 		["<A-,>"] = { "<C-W><", { desc = "Shrink vertical split" } },
 		["<A-0>"] = { "<C-W>=", { desc = "Evenly distribute screen space" } },
 
-		-- Config shortcut
-		["<F1>"] = { "<cmd>tabnew | edit " .. vim.fn.stdpath("config") .. "/lua/sneez/<cr>", { desc = "Edit config" } },
-		["<F2>"] = { "<cmd>tabnew | edit " .. vim.fn.stdpath("state") .. "/backups/<cr>", { desc = "Edit config" } },
+		-- Place shortcuts
+		["<F1>"] = { "<cmd>exec 'tabnew | tcd ' . stdpath('config') . '/lua/sneez/ | edit .'<cr>", { desc = "Edit config" } },
+		["<F2>"] = { "<cmd>exec 'tabnew | tcd ' . &backupdir . ' | edit .'<cr>", { desc = "Edit backups" } },
+		["<F3>"] = { "<cmd>exec 'tabnew | tcd ' . &viewdir . ' | edit .'<cr>", { desc = "Edit views" } },
 	},
 	i = {
 		["<C-l>"] = { "<del>", { desc = "Delete (like <C-h>)" } },

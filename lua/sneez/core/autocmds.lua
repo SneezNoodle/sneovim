@@ -3,6 +3,12 @@ local augroups = {
 		TextYankPost = {
 			{ "*", "silent! lua vim.highlight.on_yank { higroup = 'Search' }" },
 		},
+		BufWinEnter = {
+			{ "*", "silent! loadview" },
+		},
+		BufWritePost = {
+			{ "*", "mkview" },
+		}
 	}
 }
 
